@@ -16,7 +16,7 @@ Clone the repository:
 
 bash
 Copy code
-git clone https://github.com/yourusername/bmi-calculator.git
+git clone https://github.com/Abdumannonov-Samandar/BMI-calculator.git
 Navigate to the project directory:
 
 bash
