@@ -25,6 +25,39 @@ export default function Component() {
     else setCategory("Obese")
   }
 
+  const getCategoryColor = (category: string): string => {
+    switch (category) {
+      case "Underweight":
+        return "text-yellow-500"
+      case "Normal weight":
+        return "text-green-500"
+      case "Overweight":
+        return "text-orange-500"
+      case "Obese":
+        return "text-red-500"
+      default:
+        return "text-gray-500"
+    }
+  }
+  
+  const getBMIMessage = (category: string, age: number): string => {
+    if (age < 20) {
+      return "BMI is not the best measure for people under 20. Please consult with a healthcare provider for a more accurate assessment."
+    }
+    switch (category) {
+      case "Underweight":
+        return "You may need to gain some weight. Consult with a nutritionist for a healthy diet plan."
+      case "Normal weight":
+        return "Great job! You're in a healthy weight range. Keep up the good work with a balanced diet and regular exercise."
+      case "Overweight":
+        return "You may benefit from losing some weight. Consider increasing physical activity and improving your diet."
+      case "Obese":
+        return "Your health may be at risk. It's recommended to consult with a healthcare provider for a personalized weight management plan."
+      default:
+        return "Please calculate your BMI for a personalized message."
+    }
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
       <Card className="w-full max-w-2xl shadow-lg">
@@ -119,35 +152,3 @@ export default function Component() {
   )
 }
 
-function getCategoryColor(category: string): string {
-  switch (category) {
-    case "Underweight":
-      return "text-yellow-500"
-    case "Normal weight":
-      return "text-green-500"
-    case "Overweight":
-      return "text-orange-500"
-    case "Obese":
-      return "text-red-500"
-    default:
-      return "text-gray-500"
-  }
-}
-
-function getBMIMessage(category: string, age: number): string {
-  if (age < 20) {
-    return "BMI is not the best measure for people under 20. Please consult with a healthcare provider for a more accurate assessment."
-  }
-  switch (category) {
-    case "Underweight":
-      return "You may need to gain some weight. Consult with a nutritionist for a healthy diet plan."
-    case "Normal weight":
-      return "Great job! You're in a healthy weight range. Keep up the good work with a balanced diet and regular exercise."
-    case "Overweight":
-      return "You may benefit from losing some weight. Consider increasing physical activity and improving your diet."
-    case "Obese":
-      return "Your health may be at risk. It's recommended to consult with a healthcare provider for a personalized weight management plan."
-    default:
-      return "Please calculate your BMI for a personalized message."
-  }
-}
